@@ -1,0 +1,6 @@
+org\ada\school\dto\UserDto.class
+org\ada\school\service\UserService.class
+org\ada\school\model\User.class
+org\ada\school\service\UserServiceHashMap.class
+org\ada\school\controller\UserController.class
+org\ada\school\UserServiceApp.class
