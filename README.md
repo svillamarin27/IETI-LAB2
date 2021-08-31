@@ -3,6 +3,9 @@
 
 ## Spring Boot Data with MongoDB
 
+### Sebastián Villamarín Rodríguez
+### IETI - LAB2
+
 **Learning Objectives**
 
 - Explain what MongoDB is.
