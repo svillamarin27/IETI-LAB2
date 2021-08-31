@@ -44,12 +44,21 @@ If you haven't created your MongoDB Cluster follow part 1 - 4:
 1. Login into your [MongoDB Atlas account](https://account.mongodb.com/account/login)
 2. Click *connect* on the cluster you created on Part 1:
    <img align="center" src="img/mongo-db-connect.png">
+   ![image](https://user-images.githubusercontent.com/37603257/131555060-7f3c00dc-efce-499d-8293-27b1ecdb1931.png)
+   
 3. Select *Connect your application*:
    <img align="center" src="img/connect-your-application.png">
+   ![image](https://user-images.githubusercontent.com/37603257/131555295-09d32208-dd7b-4b62-9dd0-4ac397f9e4a5.png)
+   
 4. Choose the *Java* driver, select the latest version and copy the *connection string*:
    <img align="center" src="img/java-driver.png">
+   ![image](https://user-images.githubusercontent.com/37603257/131555923-007c9b2a-f5b1-4d22-a5d6-5928e0510ff4.png)
+   
 5. Replace the *password* on the *connection string* with the password used when creating your database user.
-6. Add an *Environment Variable* to the *application.properties* file to store the MongoDB URI:
+
+   ![image](https://user-images.githubusercontent.com/37603257/131560294-36b37e74-d895-44d8-a81d-32bbe7432943.png)
+   
+7. Add an *Environment Variable* to the *application.properties* file to store the MongoDB URI:
     ````properties
     spring.data.mongodb.uri=${MONGODB_URI}
     ````
@@ -58,6 +67,10 @@ If you haven't created your MongoDB Cluster follow part 1 - 4:
    
    
    <img align="center" src="img/adding-environment-variable.png">
+   
+   
+   ![image](https://user-images.githubusercontent.com/37603257/131559893-381c39dc-fc6c-4b55-8669-55f41a5af5ab.png)
+   
 7. Add the Spring Boot starter data MongoDB dependency to your *build.gradle*:
     ```groovy
        dependencies {
