@@ -36,6 +36,9 @@ If you haven't created your MongoDB Cluster follow part 1 - 4:
 
 * [Get Started with Atlas](https://docs.atlas.mongodb.com/getting-started/)
 
+![image](https://user-images.githubusercontent.com/37603257/131554676-333a7a19-a0a5-4a11-ad41-f10c8a4190ba.png)
+
+
 ### Part 2: Connecting my MongoDB Cluster with Spring Boot
 
 1. Login into your [MongoDB Atlas account](https://account.mongodb.com/account/login)
