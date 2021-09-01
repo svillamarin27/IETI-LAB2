@@ -4,6 +4,7 @@ import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
 import org.ada.school.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping( "/user" )
+@RequestMapping( "/v1/user" )
 public class UserController
 {
 
@@ -32,32 +33,29 @@ public class UserController
     @GetMapping
     public ResponseEntity<List<User>> all()
     {
-        return ResponseEntity.ok( userService.all() );
+        return new ResponseEntity<>(this.userService.all(), HttpStatus.OK);
     }
 
     @GetMapping( "/{id}" )
     public ResponseEntity<User> findById( @PathVariable String id )
     {
-        return ResponseEntity.ok( userService.findById( id ) );
+        return new ResponseEntity<> (this.userService.findById(id), HttpStatus.OK);
     }
-
 
     @PostMapping
     public ResponseEntity<User> create( @RequestBody UserDto userDto )
     {
-        return ResponseEntity.ok( userService.create( new User( userDto ) ) );
+        return new ResponseEntity<> (this.userService.create(new User(userDto)), HttpStatus.OK);
     }
 
     @PutMapping( "/{id}" )
-    public ResponseEntity<User> update( @RequestBody UserDto userDto, @PathVariable String id )
+    public ResponseEntity<User> update(@RequestBody UserDto userDto, @PathVariable String id )
     {
-        return ResponseEntity.ok( userService.update( userDto, id ) );
+        return new ResponseEntity<>(this.userService.update(new UserDto(userDto),id), HttpStatus.OK);
     }
-
     @DeleteMapping( "/{id}" )
     public ResponseEntity<Boolean> delete( @PathVariable String id )
     {
-        return ResponseEntity.ok( userService.deleteById( id ) );
+        return new ResponseEntity(this.userService.deleteById(id), HttpStatus.OK);
     }
-
 }

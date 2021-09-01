@@ -1,6 +1,7 @@
 package org.ada.school.service;
 import org.ada.school.dto.UserDto;
 import org.ada.school.model.User;
+import org.ada.school.repository.UserDocument;
 import org.ada.school.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,9 +18,9 @@ public class UserServiceMongoDB
         this.userRepository = userRepository;
     }
 
+
     @Override
-    public User create( User user )
-    {
+    public User create(User user) {
         return null;
     }
 
