@@ -6,51 +6,46 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-@Service
+
 public class UserServiceHashMap
     implements UserService
 {
 
-    private final HashMap<String, User> usersMap = new HashMap<>();
+    private final HashMap<String, User> usersHash = new HashMap<>();
 
 
     @Override
-    public User create( User user )
-    {
-        usersMap.put( user.getId(), user );
+    public User create(User user) {
+        return this.usersHash.put(user.getId(),user);
+    }
+
+    @Override
+    public User findById(String id) {
+        User user = usersHash.get(id);
         return user;
     }
 
     @Override
-    public User findById( String id )
-    {
-        if ( usersMap.containsKey( id ) )
-        {
-            return usersMap.get( id );
+    public ArrayList<User> all() {
+        return new ArrayList<User> (usersHash.values());
+    }
+
+    @Override
+    public boolean deleteById(String id){
+        boolean flag = false;
+        if(usersHash.containsKey(id)){
+            usersHash.remove(id);
+            return true;
         }
-        return null;
+        return flag;
     }
 
     @Override
-    public List<User> all()
-    {
-        return new ArrayList<>( usersMap.values() );
-    }
-
-    @Override
-    public boolean deleteById( String id )
-    {
-        return usersMap.remove( id ) != null;
-    }
-
-    @Override
-    public User update( UserDto userDto, String id )
-    {
-        if ( usersMap.containsKey( id ) )
+    public User update(UserDto userDto, String id) {
+        if ( usersHash.containsKey( id ) )
         {
-            User user = usersMap.get( id );
+            User user = usersHash.get( id );
             user.update( userDto );
             return user;
         }
@@ -59,6 +54,7 @@ public class UserServiceHashMap
             return null;
         }
     }
+
 
 
 }

@@ -29,6 +29,10 @@ public class User
         createdAt = new Date();
     }
 
+    public User() {
+
+    }
+
     public String getName()
     {
         return name;

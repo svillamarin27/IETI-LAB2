@@ -1,4 +1,5 @@
 package org.ada.school.repository;
+import org.ada.school.model.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -6,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Document
-public class UserDocument {
+public class UserDocument extends User {
     @Id
     String id;
 
@@ -19,5 +20,7 @@ public class UserDocument {
 
     Date createdAt;
 
-    public UserDocument(){}
+    public UserDocument(){
+        super();
+    }
 }

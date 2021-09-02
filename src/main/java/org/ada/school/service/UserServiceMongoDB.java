@@ -4,9 +4,11 @@ import org.ada.school.model.User;
 import org.ada.school.repository.UserDocument;
 import org.ada.school.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+import java.util.ArrayList;
+@Service
 public class UserServiceMongoDB
         implements UserService
 {
@@ -20,31 +22,40 @@ public class UserServiceMongoDB
 
 
     @Override
-    public User create(User user) {
-        return null;
+    public User create(User user){
+        UserDocument userDocument = null;
+        return userRepository.save(userDocument);
     }
 
     @Override
-    public User findById( String id )
+    public User findById(String id )
     {
-        return null;
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<User> all()
+    public ArrayList<User> all()
     {
-        return null;
+        UserDocument userDocument = null;
+        return userRepository.findAll(userDocument);
     }
 
     @Override
-    public boolean deleteById( String id )
+    public boolean deleteById(String id )
     {
-        return false;
+        boolean flag = false;
+        if(userRepository.existsById(id)){
+            userRepository.deleteById(id);
+            flag=true;
+        }
+        return flag;
     }
 
     @Override
     public User update(UserDto userDto, String id )
     {
-        return null;
+        User user = userRepository.findById(id).get();
+        user.update(userDto);
+        return user;
     }
 }
